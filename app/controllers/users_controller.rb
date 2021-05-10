@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     end
 
     def new
-
+        @user = 
     end
 
     def create
@@ -39,6 +39,12 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:name, :email, :password)
+    end
+    
+    def logged_in_user
+        unless logged_in?
+            flash[:danger] = "Please log in."
+            redirect_to
     end
 
 end
