@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
-  resources :golf_courses
-  root "welcome#index"
-  resources :users
 
+  root "welcome#index"
+
+  get '/login', to: 'sessions#login'
+
+  resources :golf_courses do
+    resources :users, only: [:index, :show]
+  end
 
   
+  resources :users
+  
+ 
+ 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
