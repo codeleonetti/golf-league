@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [:show, :edit, :update]
-    before_action :logged_in_user, only: [:show,:edit, :update]
+    before_action :logged_in_user, log_in, only: [:show,:edit, :update]
 
     def index
         @user = User.all
     end
 
     def show
+        log_in
         logged_in_user
         find_user
     end
