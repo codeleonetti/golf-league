@@ -1,17 +1,15 @@
 class SessionsController < ApplicationController
-    # helper_method :log_in
-    # helper_method :logged_in?
-    # helper_method :current_user
     
     def new
 
     end
 
     def create
-        user = User.find_by(username: params[:username])
-        if user && user.authenticate(params[:password])
-            log_in user
-            redirect_to user
+        user = User.find_by(username: user_params[:username])
+       
+        if user && user.authenticate(user_params[:password])
+            log_in(user)
+            redirect_to user_path
         else
             flash[:error] = "Invalid username or password"
             render "new"
@@ -19,8 +17,15 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-
+        log_out
+        redirect_to "new"
     end
 
+
+    private
+
+    def user_params
+        params.permit(:username, :password)
+    end
     
 end

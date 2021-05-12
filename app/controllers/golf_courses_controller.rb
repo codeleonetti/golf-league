@@ -5,28 +5,14 @@ class GolfCoursesController < ApplicationController
     end
 
     def show
-        
+        if find_course.nil?
+            redirect_to golf_courses_path
+        else
+            redirect_to golf_course_path
+        end
     end
 
-    def new
-       
-    end
-
-    def create
-
-    end
-
-    def edit
-
-    end
-
-    def update
-
-    end
-
-    def destroy
-
-    end
+    
 
     private
 

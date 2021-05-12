@@ -1,15 +1,14 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [:show, :edit, :update]
-    before_action :logged_in_user, log_in, only: [:show,:edit, :update]
+   # before_action :logged_in_user, only: [:show,:edit, :update]
 
     def index
         @user = User.all
     end
 
     def show
-        log_in
-        logged_in_user
         find_user
+        current_user  
     end
 
     def new
@@ -28,14 +27,25 @@ class UsersController < ApplicationController
     end
 
     def edit
-        find_user
+         if logged_in?
+            find_user
+            if current_user.id == @user.id
+                render "edit"
+            else
+                flash[:error] = "You are not authorized to edit this page"
+                redirect_to "/"
+            end
+        end
     end
 
     def update
         find_user
-        if @user.update(user_params)
+        @user.update(user_params)
+        if @user.save
+            redirect_to @user    
         else
-            render "edit"
+            flash[:error] = " Update failed"
+            redirect_to "/"
         end
     end
 
@@ -51,7 +61,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :address, :email, :username, :password, :password_confirmation)
     end
     
     def logged_in_user

@@ -4,15 +4,15 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  delete '/logout' to: 'sessions#destroy'
-  
+  delete '/logout', to: 'sessions#destroy'
+  resources :users
   
   resources :golf_courses do
     resources :users, only: [:index, :show]
   end
 
   
-  resources :users
+  
   
  
  
