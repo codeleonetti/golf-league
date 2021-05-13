@@ -1,6 +1,6 @@
 <h1> Available Courses </h1>
 
     <% @course.each do |course| %>
-       <ol> <%= course.name %></ol>
-
+      <ol><%= link_to course.name, golf_course_path(course) %></ol>
+      
     <%end%>

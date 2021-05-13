@@ -18,7 +18,8 @@ GolfCourse.destroy_all
             address: Faker::Address.full_address,
             username: Faker::Name.last_name,
             email: Faker::Internet.email,
-            password_digest: "password"
+            password: "password"
+                       #password_digest: BCrypt::Password.create "password"
         )
 
         GolfCourse.create(

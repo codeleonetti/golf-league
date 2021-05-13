@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [:show, :edit, :update]
-   # before_action :logged_in_user, only: [:show,:edit, :update]
+    before_action :logged_in_user, only: [:show,:edit, :update, :destroy]
+   # skip_before_action :authorized, only: [:new, :create]
 
     def index
         @user = User.all
     end
 
     def show
-        find_user
+        
         current_user  
     end
 
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
 
     def edit
          if logged_in?
-            find_user
+            #find_user
             if current_user.id == @user.id
                 render "edit"
             else
@@ -39,19 +40,21 @@ class UsersController < ApplicationController
     end
 
     def update
-        find_user
-        @user.update(user_params)
-        if @user.save
+        if @user.update(user_params)
+            @user.save
             redirect_to @user    
         else
             flash[:error] = " Update failed"
-            redirect_to "/"
+            render "edit"
         end
     end
 
-    def destroy
-
-    end
+    # def delete
+    #     find_user
+    #     find_user.destroy
+       
+    #     redirect_to '/'
+    # end
 
 
     private
