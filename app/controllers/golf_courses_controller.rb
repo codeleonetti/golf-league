@@ -6,8 +6,12 @@ class GolfCoursesController < ApplicationController
 
     def show
         find_course
-            #byebug
+         @user = current_user
                
+    end
+
+    def new
+
     end
 
     

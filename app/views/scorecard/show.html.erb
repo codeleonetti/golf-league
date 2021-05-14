@@ -1,0 +1,23 @@
+<h5> Your Profile Info </h5>
+        
+        <labe> Name: <%= @course.name %></label></br>
+        <h4> Customer Info <h4>
+
+        
+        <label> Customer Name: <%= @user.name %></br>
+            
+        
+        <%= form_with model: @scorecard, local: true do |f| %>
+            <%= f.label :name, "Course Name"%>
+            <%= f.text_field :name @course.name %>
+            <h4> Customer Info <h4>
+            
+            <%= f.label :name, "Customer Name" %>
+            <%= f.text_field :name %></br>
+                
+            <%= f.label :name, "Tee Time" %>
+            <%= f.text_field :datetime %>
+
+            <%= f.submit "Submit" %>
+        <% end %>
+        

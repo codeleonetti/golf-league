@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   #get 'authorized', to: 'sessions#page_requires_login'
   resources :users
-  
+  resources :scorecard
   resources :golf_courses do
-    resources :users, only: [:index, :show]
+    resources :scorecard, only: [:indx, :new, :show, :create]
   end
 
   

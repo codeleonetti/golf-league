@@ -1,0 +1,16 @@
+<h1> Customer Info <h1>
+
+    
+        <%= form_with model: @course, local: true do |f| %>
+            <%= f.label :name, "Course Name"%>
+            <%= f.text_field :name, @course.name %>
+            <h4> Customer Info <h4>
+            
+            <%= f.label :name, "Customer Name" %>
+            <%= f.text_field :name %></br>
+                
+            <%= f.label :name, "Tee Time" %>
+            <%= f.text_field :tee-time, "data-provide" => 'datepicker' %>
+
+            <%= f.submit "Submit" %>
+        <% end %>
