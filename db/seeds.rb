@@ -1,6 +1,6 @@
-User.destroy_all
+ScoreCard.destroy_all
 GolfCourse.destroy_all
-
+User.destroy_all
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -29,6 +29,7 @@ GolfCourse.destroy_all
             email: Faker::Internet.email,
         )
       
+        ScoreCard.create()
     end
 
 

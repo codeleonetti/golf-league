@@ -10,9 +10,7 @@ class GolfCoursesController < ApplicationController
                
     end
 
-    def new
 
-    end
 
     
 
