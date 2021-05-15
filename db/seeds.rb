@@ -35,7 +35,7 @@ time = [
       
         ScoreCard.create(
             tee_time: time.tee_time.sample
-            scorecard:
+            
         )
     end
 

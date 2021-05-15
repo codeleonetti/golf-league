@@ -11,28 +11,28 @@ class TeetimesController < ApplicationController
     def show
         
         @teetime = Teetime.find_by_id(params[:id])
+        @user = User.find_by_id(@teetime.user_id)
+        
     end
 
 
 
 
     def new
-        
+        find_courses
+
         @teetime = @course.teetimes.build # this is building the form
-        
+       
         
     end
 
     def create
-        binding.pry
-        find_courses
+       # if params[:golf_course_id]
+            @course = GolfCourse.find_by_id(params[:golf_course_id])
         @teetime = @course.teetimes.build(teetime_params)
-        @teetime = Teetime.new(teetime_params)
         @teetime.user_id = current_user.id
-        binding.pry
-        if @teetimes.save
-            binding.pry
-            redirect_to golf_course_teetime_path
+        if @teetime.save
+            redirect_to golf_course_teetime_path(@course, @teetime)
         else
             render :new
         end

@@ -4,7 +4,7 @@
         
      
         
-        <%= form_with model: @teetime , local: true do |f| %>
+        <%= form_with model: [@course, @teetime], local: true do |f| %>
          
             <label> Tee Time <%= f.datetime_select :tee_time %></br>
 
