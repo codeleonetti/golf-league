@@ -10,7 +10,7 @@ User.destroy_all
 #   Character.create(name: 'Luke', movie: movies.first)
 
 time = [
-    7:00 am .. 5:00 pm
+    7 .. 5
 ]
 
 

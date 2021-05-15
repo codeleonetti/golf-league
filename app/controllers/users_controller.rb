@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-    before_action :find_user, only: [:show, :edit, :update]
     before_action :logged_in_user, only: [:show,:edit, :update, :destroy]
+    before_action :find_user, only: [:show, :edit, :update]
+   
    # skip_before_action :authorized, only: [:new, :create]
 
     def index
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             log_in @user
-            flash[:success] = "Welcome #{@user.name}"
+            flash[:success] = "Welcome"
             redirect_to @user
         else
             render "new"
@@ -28,14 +29,12 @@ class UsersController < ApplicationController
     end
 
     def edit
-         if logged_in?
-            #find_user
-            if current_user.id == @user.id
+        if logged_in? && current_user.id == @user.id
                 render "edit"
-            else
+        else
                 flash[:error] = "You are not authorized to edit this page"
                 redirect_to "/"
-            end
+            
         end
     end
 
@@ -49,12 +48,7 @@ class UsersController < ApplicationController
         end
     end
 
-    # def delete
-    #     find_user
-    #     find_user.destroy
-       
-    #     redirect_to '/'
-    # end
+    
 
 
     private

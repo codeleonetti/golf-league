@@ -1,11 +1,11 @@
 <h1> Welcome <%= @user.name %> </h1>
     
     <h5> Your Profile Info </h5>
-    <h6><%= link_to "Edit Info", edit_user_path %></h6>
+    
         <label> Name: <%= @user.name %></label></br>
-        <label> Address: <%= @user.address %><label>
+        <label> Address: <%= @user.address %><label></br>
 
-        <h6><%= link_to "Golf Courses", golf_courses_path %>
+        <%= link_to "Golf Courses", golf_courses_path %> | <%= link_to "Edit Info / Delete", edit_user_path %>
 
    
 

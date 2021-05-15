@@ -12,19 +12,6 @@ class GolfCoursesController < ApplicationController
 
     
 
-    # def update
-    #     find_course
-    #     binding.pry
-    #      @course = scorecard.update(scorecard_params)
-    #      binding.pry
-    #     if @course.save
-    #         redirect_to golf_course_path(@course)
-    #     else
-    #         flash[:error] = " Time not available please select another time"
-    #         redirect_to new_golf_course_scorecard_path(@course)
-    #     end
-
-    # end
 
     
 
@@ -34,9 +21,6 @@ class GolfCoursesController < ApplicationController
         @course = GolfCourse.find_by_id(params[:id])
     end
 
-    # def course_params
-    #     params.require(:course).permit()
-    #end
-
+    
 end
 

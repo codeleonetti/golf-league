@@ -9,5 +9,5 @@
             <label> Tee Time <%= @teetime.tee_time %></br>
 
            
-            <h5><%= link_to "profile", user_path(@user)%>
+            <%= link_to "profile", user_path(@user)%> | <%= link_to "courses", golf_courses_path %>
         
