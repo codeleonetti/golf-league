@@ -9,6 +9,10 @@ User.destroy_all
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+time = [
+    7:00 am .. 5:00 pm
+]
+
 
 
     10.times do
@@ -29,7 +33,10 @@ User.destroy_all
             email: Faker::Internet.email,
         )
       
-        ScoreCard.create()
+        ScoreCard.create(
+            tee_time: time.tee_time.sample
+            scorecard:
+        )
     end
 
 

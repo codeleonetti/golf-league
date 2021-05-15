@@ -1,13 +1,11 @@
-
-        
-        
+ 
         <h4> Customer Info <h4>
 
         
      
         
-        <%= form_with model: @scorecard, local: true do |f| %>
-          <label> Name: <%= f.collection_select :user_id, User.all, :id, :name %></label></br>
+        <%= form_with model: @teetime , local: true do |f| %>
+         
             <label> Tee Time <%= f.datetime_select :tee_time %></br>
 
            

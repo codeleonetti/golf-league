@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :teetimes
   root "welcome#index"
 
   get '/login', to: 'sessions#new'
@@ -8,8 +9,14 @@ Rails.application.routes.draw do
   #get 'authorized', to: 'sessions#page_requires_login'
   resources :users
   resources :scorecard
+  
   resources :golf_courses do
-    resources :scorecard, only: [:indx, :new, :show, :create]
+    resources :teetimes #, only: [:index, :new, :show, :create]
+  end
+
+
+  resources :golf_courses do
+    resources :scorecard, only: [:index, :new, :show, :create]
   end
 
   

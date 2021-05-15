@@ -1,7 +1,7 @@
 <h1> <%= @course.name %> </h1>
     
     <h5> Course Info </h5>
-    <h6><%= link_to "Add Customer", new_golf_course_scorecard_path %></h6>
+    <h6><%= link_to "Member Tee Time", new_golf_course_teetime_path(@course) %></h6>
         <label> Name: <%= @course.name %></label></br>
         <label> Address: <%= @course.address %><label></br>
         <label> Phone number: <%= @course.phone_number %></label></br>
