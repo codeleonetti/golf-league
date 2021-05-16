@@ -1,4 +1,4 @@
-ScoreCard.destroy_all
+Teetime.destroy_all
 GolfCourse.destroy_all
 User.destroy_all
 # This file should contain all the record creation needed to seed the database with its default values.
@@ -8,10 +8,6 @@ User.destroy_all
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-time = [
-    7 .. 5
-]
 
 
 
@@ -33,8 +29,8 @@ time = [
             email: Faker::Internet.email,
         )
       
-        ScoreCard.create(
-            tee_time: time.tee_time.sample
+        Teetime.create(
+            tee_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long)
             
         )
     end

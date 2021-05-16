@@ -22,23 +22,26 @@ class SessionsController < ApplicationController
         redirect_to "/login"
     end
 
-    # def google
-    #     @user = User.find_or_create_by(username: auth["info"]["name"]) do |user|
-    #         user.password = SecureRandom.hex
-    #     end
-    #     if @user && @user.id
-    #         sessiion[:user_id] = @user.id
-    #         redirect_to user_path
-    #     else
-    #         redirect_to "/"
-    #     end
-    # end
+    def google
+        
+        @user = User.find_or_create_by(username: auth["info"]["name"]) do |user|
+            user.name = auth["info"]["name"]
+            user.password = SecureRandom.hex
+        end
+        
+        if @user && @user.id
+            session[:user_id] = @user.id
+            redirect_to @user
+        else
+            redirect_to "/"
+        end
+    end
 
-    # private
+    private
 
-    # def auth
-    #     request.env['omniauth.auth']
-    # end
+    def auth
+        request.env['omniauth.auth']
+    end
     
     
 end
