@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  match '/auth/:google_oauth2/callback' => 'sessions#google' via: [:get,:post]
   #get 'authorized', to: 'sessions#page_requires_login'
   resources :users
   
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
     resources :teetimes #, only: [:index, :new, :show, :create]
   end
 
+  
 
   
   
