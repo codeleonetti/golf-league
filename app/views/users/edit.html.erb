@@ -19,6 +19,8 @@
         <%= f.label :password_confirmation, "Confirmation" %>
         <%= f.password_field :password_confirmation%></br>
 
-        <%= f.submit "Update my account" %>
+        <%= f.submit "Update my account" %></br>
+
+        <%= link_to "Delete Account" , @user, method: :delete %>
 
     <%end%>

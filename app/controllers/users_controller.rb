@@ -48,6 +48,13 @@ class UsersController < ApplicationController
         end
     end
 
+    def destroy
+        logged_in_user
+        @user.destroy
+        redirect_to "/"
+
+    end
+
     
 
 
