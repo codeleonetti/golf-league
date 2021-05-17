@@ -21,15 +21,6 @@ ActiveRecord::Schema.define(version: 2021_05_14_201128) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "score_cards", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "golf_course_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "scorecard"
-    t.datetime "tee_time"
-  end
-
   create_table "teetimes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "golf_course_id"

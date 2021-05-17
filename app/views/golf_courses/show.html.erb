@@ -5,7 +5,27 @@
         <label> Name: <%= @course.name %></label></br>
         <label> Address: <%= @course.address %><label></br>
         <label> Phone number: <%= @course.phone_number %></label></br>
-        <label> Email: <%= @course.email %><label>
-
-
+        <label> Email: <%= @course.email %><label></br>
+        </br>
         
+        <%= link_to "Back to courses", golf_courses_path %></br>
+
+        <br></br>
+        <h4> Today's Tee Times Scheduled </h4>
+
+            <% @upcoming_teetimes.each do | tt | %>
+                <%  if @user = User.find_by_id(tt.user_id)%>
+                <li><%= @user.name %> <%= tt.tee_time %> </li>
+                <%end%>
+            <% end %>
+
+        <br></br>
+        <h4> All Tee Times Scheduled </h4>
+
+            <% @teetimes.each do | tt | %>
+                <%  if @user = User.find_by_id(tt.user_id)%>
+                <li><%= @user.name %> <%= tt.tee_time %> </li>
+                <%end%>
+            <% end %>
+
+ 

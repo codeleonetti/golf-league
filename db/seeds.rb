@@ -28,11 +28,17 @@ User.destroy_all
             phone_number: Faker::PhoneNumber.cell_phone,
             email: Faker::Internet.email,
         )
-      
-        Teetime.create(
-            tee_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long)
-            
+    end
+    
+    30.times do
+        
+        
+        Teetime.create(tee_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long), 
+        user: User.all.sample,
+        golf_course: GolfCourse.all.sample
+        
         )
+            
     end
 
 

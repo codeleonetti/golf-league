@@ -6,8 +6,10 @@ class GolfCoursesController < ApplicationController
 
     def show
         find_course
-         @user = current_user
-               
+        @user = User.all
+        @teetimes = Teetime.all
+        @upcoming_teetimes = Teetime.upcoming_teetimes(Time.now.midnight)
+    
     end
 
     
