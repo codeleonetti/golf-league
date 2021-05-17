@@ -1,5 +1,17 @@
 <h1> Sign up </h1>
 
+<br>
+
+    <% if @user.errors.any? %>
+        <% @user.errors.full_messages.each do |error| %>
+        
+            <h4><%= error %></h4>
+
+        <% end %>
+    <% end %>
+
+<br>
+
     <%= form_with model: @user, local: true do |f| %>
         <%= f.label :name %>
         <%= f.text_field :name %></br>
