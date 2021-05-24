@@ -11,7 +11,7 @@ I created Golf Leage which is going to be addition to my Golf Tracker for people
 
 INTALLATION:
 
-To install program fork the program and copy the ssh link. Navigate to the folder of choice using cd folder_name/ replacing folder_name with the correct name. Once in the folder type git clone ssh_link replacing ssh_link with the one that was obtained earlier and hit enter. Before running this program, run bundle install in the terminal to install necessary gems. In terminal run shotgun and proceed to the site shotgun provides in terminal by pasting the site address in the Chrome browser.
+To install program fork the program and copy the ssh link. Navigate to the folder of choice using cd folder_name/ replacing folder_name with the correct name. Once in the folder type git clone ssh_link replacing ssh_link with the one that was obtained earlier and hit enter. Before running this program, run bundle install in the terminal to install necessary gems. In terminal run rails s and proceed to the site localhost:3000 in your internet browser of choice.
 
 CONTRIBUTIONS:
 
