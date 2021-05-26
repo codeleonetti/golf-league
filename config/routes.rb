@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :teetimes
   root "welcome#index"
 
   get '/login', to: 'sessions#new'
@@ -11,7 +10,7 @@ Rails.application.routes.draw do
   resources :users
   
   resources :golf_courses do
-    resources :teetimes #, only: [:index, :new, :show, :create]
+    resources :teetimes 
   end
 
   

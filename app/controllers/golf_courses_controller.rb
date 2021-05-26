@@ -2,6 +2,8 @@ class GolfCoursesController < ApplicationController
 
     def index
         @course = GolfCourse.all
+        @userprofile = current_user
+        
     end
 
     def show
