@@ -12,15 +12,20 @@
   </head>
 
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
+    <header>
       <div class="container">
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home", '/' %></li>
-            <li><%= link_to "Login", '/login' %></li>
-            <li><%= link_to "Signup", new_user_path %></li>
-            <li><%= link_to "Logout", logout_path, method: :delete %></li>
-            <li><%= link_to "Log in with Google", '/auth/google_oauth2', method: :post%></li>
+            
+            <% if logged_in? %>
+              <li><%= link_to "Home", '/' %></li>
+              <li><%= link_to "Profile page", user_path(@currentuser) %></li>
+              <li><%= link_to "Logout", logout_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Login", '/login' %></li>
+              <li><%= link_to "Log in with Google", '/auth/google_oauth2', method: :post%></li>
+              <li><%= link_to "Signup", new_user_path %></li>
+            <% end %>  
           </ul>
         </nav>
       </div>

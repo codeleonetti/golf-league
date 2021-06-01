@@ -3,8 +3,19 @@ class GolfCoursesController < ApplicationController
     def index
         @course = GolfCourse.all
         @userprofile = current_user
-        
+       
     end
+
+    def search 
+        if params[:search].blank?
+            redirect_to(golf_courses_path, alert: "Field Empty!")
+        else
+            course_search = params[:search].downcase.gsub(/\s+/, '')
+            @courses = GolfCourse.all.select {|course|
+            course.name.downcase.include?(course_search) 
+        }
+        end
+    end 
 
     def show
         find_course

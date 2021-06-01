@@ -1,0 +1,8 @@
+
+<h1> Search Results </h1>
+
+<%= form_tag(golf_courses_search_path, method: :get) do %>
+   Search for a course: <%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search", content: nil %>   
+
+<% end%>

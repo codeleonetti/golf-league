@@ -1,18 +1,21 @@
+</br>
 <h1> <%= @course.name %> </h1>
     
     <h5> Course Info </h5>
+    </br>
     <h6><%= link_to "Member Tee Time", new_golf_course_teetime_path(@course) %></h6>
+    </br>
         <label> Name: <%= @course.name %></label></br>
         <label> Address: <%= @course.address %><label></br>
         <label> Phone number: <%= @course.phone_number %></label></br>
         <label> Email: <%= @course.email %><label></br>
         </br>
         
-        <%= link_to "Back to courses", golf_courses_path %></br>
+        <%= link_to "Back to courses", golf_courses_path %> | <%= link_to "Course Times", golf_course_teetimes_path(@course) %></br> 
 
         <br></br>
         <h4> Today's Tee Times Scheduled </h4>
-
+        </br>
             <% @upcoming_teetimes.each do | tt | %>
                 <%  if @user = User.find_by_id(tt.user_id)%>
                 <li><%= @user.name %> <%= tt.tee_time %> </li>
@@ -21,7 +24,7 @@
 
         <br></br>
         <h4> All Tee Times Scheduled </h4>
-
+        </br>
             <% @teetimes.each do | tt | %>
                 <%  if @user = User.find_by_id(tt.user_id)%>
                 <li><%= @user.name %> <%= tt.tee_time %> </li>

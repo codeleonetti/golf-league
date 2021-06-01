@@ -1,8 +1,11 @@
+</br>
 <h1> Available Courses </h1>
+</br>
 
+<br><%= render 'golf_courses/searchbar' %><br>
     <% @course.each do |course| %>
-      <ol><%= link_to course.name, golf_course_path(course) %></ol>
+      <ol><%= link_to course.name, golf_course_path(@course) %></ol>
       
     <%end%>
     <br></br>
-    <%= link_to "Back to profile page", @userprofile%> 
+   

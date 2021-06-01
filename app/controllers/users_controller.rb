@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     before_action :logged_in_user, only: [:show,:edit, :update, :destroy]
     before_action :find_user, only: [:show, :edit, :update]
    
-   # skip_before_action :authorized, only: [:new, :create]
+  
 
     def index
         @user = User.all
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
         if @user.save
             log_in @user
             flash[:success] = "Welcome"
-            redirect_to user_path
+            redirect_to user_path(@user)
         else
             render "new"
         end

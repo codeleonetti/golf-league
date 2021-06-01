@@ -1,0 +1,10 @@
+<br>
+<h1> Search Results </h1>
+<br>
+    <ul>
+    <% @courses.each do |c| %>
+       <li><%= c.name %></li>
+    <%end%>
+    </ul>
+<br>
+    <%= link_to "Back to golf courses", golf_courses_path %>

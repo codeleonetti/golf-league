@@ -1,0 +1,9 @@
+<h1>All Teetimes</h1>
+
+<% @teetimes.each do |teetimes| %>
+    <li> <%= teetimes.user.name %> - <%= teetimes.tee_time %> </li>
+    
+    
+  <%end%>
+  <br></br>
+  <%= link_to "Golf Courses", golf_courses_path %>

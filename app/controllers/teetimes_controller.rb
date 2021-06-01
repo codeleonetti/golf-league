@@ -4,6 +4,7 @@ class TeetimesController < ApplicationController
        if params[:golf_course_id]
         find_courses
         @teetimes = @course.teetimes
+    
        else
 
        end
